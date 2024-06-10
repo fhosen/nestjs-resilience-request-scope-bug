@@ -30,18 +30,19 @@ There is 1 controller and 2 services:
 AppController -> ResilientHelloService -> RequestScopedHelloService
 
 ## Bug reproduction:
-- Start the server
   
 Current behaviour:
-- Make a request to `localhost:3000/` using the custom header `x-request-id` with value 1.
+- Start the server
+- Make a GET request to `localhost:3000/` using the custom header `x-request-id` with value 1.
 - You will see in the logs `Request id: 1` and the response of the server will be `Hello World!1`
-- Make a second request to `localhost:3000/` using the custom header `x-request-id` with value 2.
+- Make a second GET request to `localhost:3000/` using the custom header `x-request-id` with value 2.
 - You will see in the logs `Request id: 1` and the response of the server will be `Hello World!1`
 
 Expected behaviour:
-- Make a request to `localhost:3000/` using the custom header `x-request-id` with value 1.
+- Start the server
+- Make a GET request to `localhost:3000/` using the custom header `x-request-id` with value 1.
 - You will see in the logs `Request id: 1` and the response of the server will be `Hello World!1`
-- Make a second request to `localhost:3000/` using the custom header `x-request-id` with value 2.
+- Make a second GET request to `localhost:3000/` using the custom header `x-request-id` with value 2.
 - You will see in the logs `Request id: 2` and the response of the server will be `Hello World!2`
 
 Problem:
